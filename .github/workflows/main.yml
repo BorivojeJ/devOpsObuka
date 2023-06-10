@@ -25,6 +25,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+    - name: Change wrapper permissions
+      run: chmod +x ${{env.working-directory}}/gradlew
     - name: Run build with Gradle Wrapper
       run: ${{env.working-directory}}/gradlew src/test/SpringBootCiCdApplicationTests.java
   build:
