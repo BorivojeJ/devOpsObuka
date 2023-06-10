@@ -17,6 +17,14 @@ permissions:
   contents: read
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        arguments: -b ci.gradle package
+
   build:
 
     runs-on: ubuntu-latest
