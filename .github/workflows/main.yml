@@ -28,7 +28,7 @@ jobs:
     - name: Change wrapper permissions
       run: chmod +x ${{env.working-directory}}/gradlew
     - name: Run build with Gradle Wrapper
-      run: ${{env.working-directory}}/gradlew src/test/SpringBootCiCdApplicationTests.java
+      run: ${{env.working-directory}}/gradlew test
   build:
 
     runs-on: ubuntu-latest
