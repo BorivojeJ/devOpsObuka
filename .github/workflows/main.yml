@@ -18,13 +18,15 @@ permissions:
 
 jobs:
   test:
+    env:
+        working-directory: ./cicd_basics/java-demo-app
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     - name: Run build with Gradle Wrapper
-      run: ./gradlew build
+      run: ${{env.working-directory}}/gradlew src/test/SpringBootCiCdApplicationTests.java
   build:
 
     runs-on: ubuntu-latest
