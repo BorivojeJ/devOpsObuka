@@ -19,7 +19,7 @@ permissions:
 jobs:
   test:
     env:
-        working-directory: ./cicd_basics/java-demo-app
+      working-directory: ./cicd_basics/java-demo-app
     runs-on: ubuntu-latest
 
     steps:
@@ -27,9 +27,11 @@ jobs:
     - uses: actions/checkout@v3
     - uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     - name: Change wrapper permissions
-      run: chmod +x ${{env.working-directory}}/gradlew
+      working-directory: ${{env.working-directory}}
+      run: chmod +x ./gradlew
     - name: Run build with Gradle Wrapper
-      run: ${{env.working-directory}}/gradlew test
+      working-directory: ${{env.working-directory}}
+      run: ./gradlew test
   build:
 
     runs-on: ubuntu-latest
